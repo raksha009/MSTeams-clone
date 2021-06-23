@@ -3,6 +3,7 @@ const videoGrid = document.getElementById('video-grid')
 
 // underfined as server geberate our userId
 const myPeer = new Peer(undefined, {
+  path: '/peerjs',
   host: ':/',
   port: '443'   //3001
 })
