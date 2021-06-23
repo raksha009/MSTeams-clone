@@ -1,0 +1,107 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	background-color: black;
+}
+
+a{
+	text-decoration: none;
+}
+
+html{
+	overflow: hidden;
+}
+
+#video-grid{
+	
+	flex-grow: 1;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.leave_meeting {
+    color: #EB534B;
+    text-decoration: none;
+    /*right: 10px;*/
+
+    /*position: absolute;*/
+    flex:  0.8;
+    /*margin-right: -50px;*/
+}
+.leave_meeting:hover{
+	text-decoration: none;
+}
+
+.unmute, .stop {
+    color: #CC3B33;
+}
+
+.main {
+    /*height: 100vh;*/
+    /*display: flex;*/
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+
+.main__left {
+    /*flex: 1;  */ /* 0.8*/
+    /*display: flex;*/
+    flex-direction: column;
+}
+
+/*.main__right {
+    flex: 0.2
+}*/
+.main__controls {
+    background-color: #1C1E20;
+    align-items: center;
+}
+
+/*.main__right {
+    background-color: #242324;
+    border-left: 1px solid #3D3D42;
+}*/
+
+
+.main__controls {
+    color: #D2D2D2;
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: center;
+    padding: 5px;
+    bottom: 0px;
+}
+
+.main__controls__block {
+    display: flex;
+}
+
+.main__controls__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+
+.main__controls__button:hover {
+    background-color: #343434;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.main__controls__button i {
+    font-size: 24px;
+}
+/*
+.main__right {
+    display: flex;
+    flex-direction: column;
+}
+*/
