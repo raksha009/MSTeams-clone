@@ -4,7 +4,7 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 
-// Set up o render our views
+// Set up o render our views 
 app.set('view engine', 'ejs')
 // all css and js in public folder
 app.use(express.static('public'))
