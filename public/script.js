@@ -4,8 +4,10 @@ const videoGrid = document.getElementById('video-grid')
 // underfined as server geberate our userId
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
-  host: ':/',
-  port: '443'   //3001  //443
+  // host: ':/',
+  // port: '443'   //3001  //443
+  host : 'zoom-clone.herokuapp.com',
+  port : 443,
 })
 
 //Turn on my video
