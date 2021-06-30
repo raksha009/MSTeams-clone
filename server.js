@@ -36,7 +36,7 @@ io.on('connection', socket => {
   })
 })
 
-erver.listen(process.env.PORT || 3000); 
+server.listen(process.env.PORT || 3000); 
 // server.listen(3000)
 
 
