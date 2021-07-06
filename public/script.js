@@ -7,7 +7,9 @@ const myPeer = new Peer(undefined, {
   // host: 'localhost',
   // port: '443'   //3001  //443
   host : 'zoom-clone.herokuapp.com',
-  port : '3001'   //443,
+  // port : '3001',   //443,
+  port: 443,
+  secure: true
 })
 
 //Turn on my video

@@ -20,17 +20,12 @@ html{
 }
 */
 #video-grid{
-	/*grid-template-columns: repeat(auto-fill, 300px);   /*every column 300px wide*/*/
-      /*grid-auto-rows: 300px;   /*every row 300px tall */*/
-	/*flex-grow: 1;*/
+	height:  100vh;
+    width:  70vw;
     background-color: black;
-    /*display: flex !important;*/
-    /*float: left !important;  /*new*/*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /*padding: 40px;*/
-    /*height: 300px;*/
-    /*width: 300px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
         /*LEAVE MEETING BUTTON*/
