@@ -6,8 +6,9 @@ const myPeer = new Peer(undefined, {
   path: '/peerjs',
   // host: 'localhost',
   // port: '443'   //3001  //443
-  host : 'zoom-clone.herokuapp.com',
-  // port : '3001',   //443,
+  // host : 'zoom-clone.herokuapp.com',
+  host: 'pure-caverns-06254.herokuapp.com',
+  // port : '3000',   //443,
   port: '443'
   // secure: true
 })
