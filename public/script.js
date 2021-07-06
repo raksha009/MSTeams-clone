@@ -3,11 +3,11 @@ const videoGrid = document.getElementById('video-grid')
 
 // underfined as server geberate our userId
 const myPeer = new Peer(undefined, {
-  path: '/peerjs',
-  // host: ':/',
+  // path: '/peerjs',
+  // host: 'localhost',
   // port: '443'   //3001  //443
   host : 'zoom-clone.herokuapp.com',
-  port : 443,
+  port : '3001'   //443,
 })
 
 //Turn on my video
@@ -35,14 +35,19 @@ navigator.mediaDevices.getUserMedia({
     })
   })
 
+  // console.log(userId);
+
 // as soon as user connected => run and connect user to new uswer id
 // Changes here
   socket.on('user-connected', userId => {
-    connectToNewUser(userId, stream)    
+    // connectToNewUser(userId, stream)    
       console.log('New User Connected: ' + userId)    
+  
+console.log("script1");
   const fc = () => connectToNewUser(userId, stream)
   timerid = setTimeout(fc, 1000 )
   })
+  // console.log("script2");
 })
 
 // Close the connection if peer disconnected

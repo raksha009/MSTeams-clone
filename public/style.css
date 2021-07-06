@@ -5,22 +5,35 @@ body{
 }
 
 a{
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 html{
 	overflow: hidden;
 }
 
-#video-grid{
-	
-	flex-grow: 1;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+/*.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+  grid-gap: 0px 0px;
 }
+*/
+#video-grid{
+	/*grid-template-columns: repeat(auto-fill, 300px);   /*every column 300px wide*/*/
+      /*grid-auto-rows: 300px;   /*every row 300px tall */*/
+	/*flex-grow: 1;*/
+    background-color: black;
+    /*display: flex !important;*/
+    /*float: left !important;  /*new*/*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*padding: 40px;*/
+    /*height: 300px;*/
+    /*width: 300px;*/
+}
+
+        /*LEAVE MEETING BUTTON*/
 
 .leave_meeting {
     color: #EB534B;
@@ -35,6 +48,7 @@ html{
 	text-decoration: none;
 }
 
+        /*OTHER BUTTONS*/
 .unmute, .stop {
     color: #CC3B33;
 }

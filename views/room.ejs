@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <link rel="shortcut icon" href="ms-teams-logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <script>
@@ -20,24 +20,25 @@
   <!-- FONTAWESOME lIBRARY -->
   <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
   <style>
-    #video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 300px);   /*every column 300px wide*/
-      grid-auto-rows: 300px;   /*every row 300px tall */
-    }
     
+
+    video{
+      object-fit: cover;
+    }
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: relative;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class = "container">
-    <div class="row" >
-      <div class="col-12 col-md-6" >
+  <div class = "d-flex flex-row container">
+    <div class="d-flex flex-row justify-content-center row" >
+      <div class="d-flex align-items-center col-lg-3 col-md-3" >
 
           <div id="video-grid"></div>
 
@@ -74,20 +75,13 @@
             </div> -->
             <div class="main__controls__block">
                <div class="main__controls__button">
-                  <a href="#"><span class="leave_meeting">Leave Meeting</span> </a>
+                  <a href="/"><span class="leave_meeting">Leave Meeting</span> </a>
                </div>
             </div>
          </div>
        </div>
      </div>
       
-
-
-
-
-
-
-
 
 
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
