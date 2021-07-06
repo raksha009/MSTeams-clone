@@ -3,13 +3,13 @@ const videoGrid = document.getElementById('video-grid')
 
 // underfined as server geberate our userId
 const myPeer = new Peer(undefined, {
-  // path: '/peerjs',
+  path: '/peerjs',
   // host: 'localhost',
   // port: '443'   //3001  //443
   host : 'zoom-clone.herokuapp.com',
   // port : '3001',   //443,
-  port: 443,
-  secure: true
+  port: '443'
+  // secure: true
 })
 
 //Turn on my video

@@ -9,7 +9,12 @@ app.set('view engine', 'ejs')
 // all css and js in public folder
 app.use(express.static('public'))
 
+const { ExpressPeerServer } = require('peer');
+const peerServer = ExpressPeerServer(server, {
+  debug: true
+});
 
+app.use('/peerjs', peerServer);
 // app.get('/:welcom', (req, res) => {
   // res.render('welcome')
   // res.redirect(`/${uuidV4()}`)
