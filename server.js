@@ -23,6 +23,8 @@ app.set('view engine', 'ejs')
 // all css and js in public folder
 app.use(express.static('public'))
 
+// app.engine('.html', require('ejs').renderFile);
+// app.set('view engine', 'html');
 
 app.use('/peerjs', peerServer);
 // app.get('/:welcom', (req, res) => {
@@ -42,8 +44,19 @@ app.get('/', (req, res) => {
 // app.use('/peerjs', require('peer').ExpressPeerServer(srv, {
 //   debug: true
 // }))
+app.get('/game', (req, res) => {
+  res.render('gamepage1')
+})
 
-
+app.get('/memorygame', (req, res) => {
+  res.render('memoryGame')
+})
+app.get('/hangman', (req, res) => {
+  res.render('hangmangame')
+})
+app.get('/towerblocks', (req, res) => {
+  res.render('towerBlocks')
+})
 // create brand new room with unique id
 app.get('/call', (req, res) => {
   res.redirect(`/${uuidV4()}`)
@@ -84,7 +97,10 @@ catch(err){
 
 })
 
-server.listen(process.env.PORT || 3000); 
+// server.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000
+
+server.listen(port, () => console.log(`Server Started on ${port}`)) 
 // server.listen(3000)
 
 

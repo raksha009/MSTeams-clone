@@ -12,13 +12,6 @@ html{
 	overflow: hidden;
 }
 
-/*.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100vh;
-  grid-gap: 0px 0px;
-}
-*/
 #video-grid{
 	height:  100vh;
     width:  70vw;

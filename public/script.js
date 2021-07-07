@@ -6,11 +6,10 @@ const myPeer = new Peer(undefined, {
   path: '/peerjs',
   // host: 'localhost',
   // port: '443'   //3001  //443
-  // host : 'zoom-clone.herokuapp.com',
-  host: 'pure-caverns-06254.herokuapp.com',
+  host : 'ms-teams--clone.herokuapp.com',
+  //host: 'pure-caverns-06254.herokuapp.com',
   // port : '3000',   //443,
   port: '443'
-  // secure: true
 })
 
 //Turn on my video
@@ -151,3 +150,21 @@ const setPlayVideo = () => {
   document.querySelector('.main__video_button').innerHTML = html;
 }
 
+
+// Invite Other Users
+document.getElementById("invite-button").addEventListener("click", getURL);
+
+function getURL() {
+  const c_url = window.location.href;
+  copyToClipboard(c_url);
+  alert("Url Copied to Clipboard,\nShare it with your Friends!\nUrl: " + c_url);
+}
+
+function copyToClipboard(text) {
+  var dummy = document.createElement("textarea");
+  document.body.appendChild(dummy);
+  dummy.value = text;
+  dummy.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummy);
+}
