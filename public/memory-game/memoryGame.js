@@ -22,7 +22,7 @@ let movesCount = moves.textContent;
 let starsCount = 3;
 let movesWait = false;
 
-
+// Start a New Game
 function newGame() {
 
 	resetTimer();
@@ -39,9 +39,6 @@ function newGame() {
 	for(let i = 0; i < cards.length; i++) {
 		deck.insertAdjacentHTML('afterbegin', '<li class="card"><i class="fa fa-' + cards[i] +' "></i></li>');
 	}
-
-	// stars.innerHTML = '<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>';
-	// starsCount = 3;
 }
 
 
@@ -57,8 +54,6 @@ function cardMatch() {
 	cards_select[1].classList.add("match");
 	cards_select = [];
 	matches++;
-
-	// if (matches == 8) endGame();
 }
 
 
@@ -81,24 +76,9 @@ function addMove(card) {
 
 
 function endGame() {
-	// if(movesCount <= 14) {
-	// 	starsCount = 5;
-	// } else if (movesCount <= 19) {
-	// 	starsCount = 4;
-	// } else if (movesCount <= 22) {
-	// 	starsCount = 3;
-	// } else {
-	// 	starsCount = 2;
-	// }
-
 	if(matches === 8) {
-
-		// sendData();
 		modal.style.display = "block";
-
 		modalText.innerHTML = "<h2>Congratulations! You made it</h2> <br> Time taken: "  + minute + "Minutes   " + second + " Seconds <br> Moves Taken: " + movesCount;
-		
-     	// " <br> Stars: "  + starsCount + " <br> You can do better!";
 	}
 }
 

@@ -1,12 +1,6 @@
 /*Loading Animation fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
-/*.heading{
-	.font-family:;
-	.color: 
-	.font-size: ;
-}*/
-
 @font-face{
     font-family: 'heading-font';
     src : url(fonts/DebugFreeTrial-MVdYB.otf);
@@ -28,7 +22,6 @@ div{
 }
 
 /*Loading Animation*/
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -308,16 +301,10 @@ body {
 }
 
 .Loadingtext {
-  /*font-family: "Helvetica";*/
   font-family: 'Orelega One', cursive;
-  /*text-align: center;*/
   text-transform: uppercase;
-  /*color: #888;*/
   color: white;
-
   font-size: 29px;
-  /*font-weight: bold;*/
-  /*padding-top: 10px;*/
   margin-top: 240px;
   text-shadow: 1px 1px 0px #111;
 }

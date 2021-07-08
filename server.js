@@ -1,3 +1,15 @@
+const path = require('path');
+const formatMessage = require('./utils/messages');
+const {
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  getRoomUsers
+} = require('./utils/users');
+
+
+
+
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -20,6 +32,8 @@ app.use(cors());
 
 // Set up o render our views 
 app.set('view engine', 'ejs')
+
+// Set static Folder
 // all css and js in public folder
 app.use(express.static('public'))
 
@@ -51,8 +65,8 @@ app.get('/game', (req, res) => {
 app.get('/memorygame', (req, res) => {
   res.render('memoryGame')
 })
-app.get('/hangman', (req, res) => {
-  res.render('hangmangame')
+app.get('/chat', (req, res) => {
+  res.render('chatroom.ejs')
 })
 app.get('/towerblocks', (req, res) => {
   res.render('towerBlocks')
@@ -63,37 +77,108 @@ app.get('/call', (req, res) => {
 //   // console.log("heyy")
 })
 
-console.log("heyy1");
+// console.log("heyy1");
 app.get('/:room', (req, res) => {
 
   res.render('room', { roomId: req.params.room })
-  console.log("heyy2");
+  // console.log("heyy2");
 })
 
 
 
+const botName = 'Admin';
+
 // run anytime somenone connects to our webpage
 io.on('connection', socket => {
-  console.log('a user connected');
-  try{
+  // console.log('a user connected');
+  // try{
   socket.on('join-room', (roomId, userId) => {
-    socket.emit('chat message', 'Hello World.');
-    console.log(roomId,userId)
+    // socket.emit('chat message', 'Hello World.');
+    // console.log(roomId,userId)
     // new user joins roomId
     socket.join(roomId)
     //Broadcasts that new user has connected
     socket.to(roomId).broadcast.emit('user-connected', userId)
 
-    // qUICKLY closes the video of the other user
-    socket.on('disconnect', () => {
-      console.log('user disconnected');
-      socket.to(roomId).broadcast.emit('user-disconnected', userId)
+    //----------------message ----------------
+    socket.on('add-us', (adminId) => {
+      socket.to(roomId).broadcast.emit("add-others", adminId);
     })
+
+    socket.on("disconnected", userToRemove => {
+      socket.to(roomId).broadcast.emit("user-disconnected", userToRemove)
+    })
+
+    socket.on("new message", (message, id) => {
+      socket.to(roomId).broadcast.emit("user-message", message, id);
+    })
+    
+//     const user = userJoin(socket.id, userId, roomId);
+
+//     socket.join(roomId);
+
+//     // Welcome current user
+    // socket.emit('message', formatMessage(botName, 'Welcome to MS Teams!'));
+
+//     // Broadcast when a user connects
+//     socket.broadcast
+//       .to(roomId)
+//       .emit(
+//         'message',
+//         formatMessage(botName, `${userId} has joined the chat`)
+//       );
+
+//     // Send users and room info
+//     io.to(roomId).emit('roomUsers', {
+//       room: user.room,
+//       users: getRoomUsers(user.room)
+//     });
+
+
+//     socket.on('chatMessage', (msg,room) => {
+//     // const user = getCurrentUser(socket.id);
+// console.log(user.room.username)
+//     io.to(roomId).emit('message', formatMessage(user.room.username, msg));
+//   });
+
+//   // Runs when client disconnects
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//       socket.to(roomId).broadcast.emit('user-disconnected', userId)
+
+//     const user = userLeave(socket.id);
+
+//     if (user) {
+//       io.to(roomId).emit(
+//         'user-disconnected',
+//         formatMessage(botName, `${userId} has left the chat`), userId
+//       );
+
+//       // Send users and room info
+//       io.to(roomId).emit('roomUsers', {
+//         room: roomId,
+//         users: getRoomUsers(roomId)
+//       });
+//     }
+//   });
+
+  
+
+    // // qUICKLY closes the video of the other user
+    // socket.on('disconnect', () => {
+    //   console.log('user disconnected');
+    //   socket.to(roomId).broadcast.emit('user-disconnected', userId)
+    // })
   })
-}
-catch(err){
-  console.log(err);
-}
+
+// ---------------------
+// Listen for chatMessage
+  
+
+// }
+// catch(err){
+//   console.log(err);
+// }
 
 })
 

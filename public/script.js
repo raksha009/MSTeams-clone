@@ -155,16 +155,16 @@ const setPlayVideo = () => {
 document.getElementById("invite-button").addEventListener("click", getURL);
 
 function getURL() {
-  const c_url = window.location.href;
-  copyToClipboard(c_url);
-  alert("Url Copied to Clipboard,\nShare it with your Friends!\nUrl: " + c_url);
+  const inviteurl = window.location.href;
+  copyToClipboard(inviteurl);
+  alert("                URL Copied to Clipboard!\n                Just Paste it to share!\nUrl: " + inviteurl);
 }
 
 function copyToClipboard(text) {
-  var dummy = document.createElement("textarea");
-  document.body.appendChild(dummy);
-  dummy.value = text;
-  dummy.select();
+  var urltext = document.createElement("textarea");
+  document.body.appendChild(urltext);
+  urltext.value = text;
+  urltext.select();
   document.execCommand("copy");
-  document.body.removeChild(dummy);
+  document.body.removeChild(urltext);
 }

@@ -1,116 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-  <link rel="shortcut icon" href="ms-teams-logo.png" type="image/x-icon">
-  <!-- Bootstrap 4 CDN -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <link rel="shortcut icon" href="ms-teams-logo.png" type="image/x-icon">
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="hangman.css">
+    <title>Hangman</title>
+  </head>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="hangman.css">
-  <title>Hangman</title>
-
-</head>
-
-<body onload="myFunction()">
-
-
-
-<div class="container">
-
-  <h1 class="text-center heading">Hangman</h1>
-
-  <div class="float-right">Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
-
-  <div class="text-center">
-
-    <img id='hangmanPic' src="images/0.jpg" alt="">
-
-    <p>Guess the Programming Language:</p>
-
-    <p id="wordSpotlight">The word to be guessed goes here</p>
-
-    <div id="keyboard"></div>
-
-    <button class="btn btn-info" onClick="reset()">Reset</button>
-
-  </div>
-
-</div>
-
-
-<!-- Loading Animation -->
-
-<div class="loader-wrapper" id = "loading">
-    <!-- <span class="loader"><span class="loader-inner"></span></span> -->
-
-    <div class="container1">
-    <!-- <div class="gearbox"> -->
-      <div>
-    <div class="overlay"></div>
-      <div class="gear one">
-        <div class="gear-inner">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+  <body onload="myFunction()">
+    <div class="container">
+      <h1 class="text-center heading">Hangman</h1>
+      <div class="float-right">
+        Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span>
       </div>
-      <div class="gear two">
-        <div class="gear-inner">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
-      <div class="gear three">
-        <div class="gear-inner">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
-      <div class="gear four large">
-        <div class="gear-inner">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+
+      <div class="text-center">
+        <img id='hangmanPic' src="images/0.jpg" alt="">
+        <p>Guess the Programming Language:</p>
+        <p id="wordSpotlight">The word to be guessed goes here</p>
+
+        <div id="keyboard"></div>
+        <button class="btn btn-info" onClick="reset()">Reset</button>
       </div>
     </div>
-    <!-- </div> -->
-</div>
-    <br> <br><br><br>
-    <div class = "Loadingtext"> Loading... </div>
-  </div>
-<!-- </div> -->
 
-<script>
-      // var delayInMilliseconds = 1000; //1 second
 
-      //   setTimeout(function() {
-          //your code to be executed after 1 second
-        $(window).on("load",function(){
-          $(".loader-wrapper").fadeOut(4000);  // after 4 sec //"slow"
-        });
+    <!-- Loading Animation -->
 
-        // }, delayInMilliseconds);
+    <div class="loader-wrapper" id = "loading">
+      <div class="container1">
+        <div>
+          <div class="overlay">
+          </div>
+          <div class="gear one">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear two">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear three">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear four large">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br> <br><br><br>
+      <div class = "Loadingtext"> Loading... </div>
+    </div>
+
+    <script>
+      $(window).on("load",function(){
+        $(".loader-wrapper").fadeOut(4000);  // display after 4 sec OR "slow"
+      });
+
     </script>
-<script src='hangman.js'></script>
-<!-- <script >
-  $(window).on("load",function(){
-     $(".loader-wrapper").fadeOut("slow");
-});
-</script> -->
-<!-- <script src="jquery-1.6.1.js"></script>
-<script src="my_jquery.js"></script>
-<script type="text/javascript" src="jquery-3.5.1.min.js">  </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  </script> -->
-</body>
+    <script src='hangman.js'></script>
 
+  </body>
 </html>
