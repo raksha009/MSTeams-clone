@@ -4,16 +4,21 @@ const videoGrid = document.getElementById('video-grid')
 // underfined as server geberate our userId
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
+  // Values for hosting on Localhost port - 3000
   // host: 'localhost',
+  // port : '3000'   
+
+  // Values for Hosting on heroku 
   host : 'ms-teams--clone.herokuapp.com',
-  // port : '3000',   //443,
   port: '443'
 })
 
+let currentPeer;
 //Turn on my video
 const myVideo = document.createElement('video')
 myVideo.muted = true  
 const peers = {}
+
 
 // A Promise to send our stream(audio, video) to other peple
 let myVideoStream;
@@ -29,9 +34,12 @@ navigator.mediaDevices.getUserMedia({
     call.answer(stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream)
+      console.log("here");
+      addVideoStream(video, userVideoStream);
+      currentPeer = call.peerConnection
     })
   })
+
 
 
   // Connect us to the peer
@@ -40,6 +48,7 @@ navigator.mediaDevices.getUserMedia({
       console.log('New User Connected: ' + userId)    
       const fc = () => connectToNewUser(userId, stream)
       timerid = setTimeout(fc, 1000 )
+      // peers[userId] = call;
   })
 })
 
@@ -60,8 +69,11 @@ function connectToNewUser(userId, stream) {
 
   // Get connected user's video
   call.on('stream', userVideoStream => {
+    // console.log(call.peerConnection, "-----");
     addVideoStream(video, userVideoStream)
+    currentPeer = call.peerConnection
   })
+
 
   // Removes the video of the peer from our end once they leave the call
   call.on('close', () => {
@@ -177,10 +189,7 @@ function copyToClipboard(text) {
 
 
 
-
-
-
-//SCREEN SHARING IMPLMENTATION
+// Screen Sharing Feature
 const shareScreen = document.querySelector("#screenshare");
 shareScreen.addEventListener('click', (e) => {
   navigator.mediaDevices.getDisplayMedia({
@@ -195,16 +204,17 @@ shareScreen.addEventListener('click', (e) => {
     videoTrack.onended = function () {
       stopScreenShare();
     }
+
     let sender = currentPeer.getSenders().find(function (s) {
       return s.track.kind == videoTrack.kind
     })
     sender.replaceTrack(videoTrack)
-  }).catch((err) => {
-    console.log("unable to display media" + err)
+  }).catch((error) => {
+    console.log("unable to display media" + error)
   })
 })
 
-//STOP SCREEN SHARING
+//Stop Screen Sharing
 function stopScreenShare() {
   let videoTrack = myVideoStream.getVideoTracks()[0];
   var sender = currentPeer.getSenders().find(function (s) {
@@ -213,161 +223,3 @@ function stopScreenShare() {
   sender.replaceTrack(videoTrack)
 }
 
-
-// // RECORDING VIDEO OR SCREEN
-// var mediaRecorder = '';
-// var recordedStream = [];
-// var screen = '';
-
-// document.getElementById('closeModal').addEventListener('click', () => {
-//   toggleModal('recording-options-modal', false);
-// });
-
-// //SAVE THE RECORDED VIDEO
-// function saveRecordedStream(stream, user) {
-//   let blob = new Blob(stream, { type: 'video/webm' });
-//   let file = new File([blob], `${user}-record.webm`);
-//   saveAs(file);
-// }
-
-// function toggleModal(id, show) {
-//   let el = document.getElementById(id);
-
-//   if (show) {
-//     el.style.display = 'block';
-//     el.removeAttribute('aria-hidden');
-//   }
-
-//   else {
-//     el.style.display = 'none';
-//     el.setAttribute('aria-hidden', true);
-//   }
-// }
-
-// //WHEN RECORD BUTTON IS CLICKED
-// document.getElementById('record').addEventListener('click', (e) => {
-
-//   //ASK USER WHAT THEY WANT TO RECORD AND GET THE STREAM BASED ON SELECTION AND START RECORDING
-//   if (!mediaRecorder || mediaRecorder.state == 'inactive') {
-//     toggleModal('recording-options-modal', true);
-//   }
-//   else if (mediaRecorder.state == 'paused') {
-//     mediaRecorder.resume();
-//   }
-//   else if (mediaRecorder.state == 'recording') {
-//     mediaRecorder.stop();
-//   }
-// });
-
-// //FUNCTION SHARESCREEN TO HELP IN RECORDING SCREEN
-// function shareScreenhelp() {
-//   if (this.userMediaAvailable()) {
-//     return navigator.mediaDevices.getDisplayMedia({
-//       video: {
-//         cursor: "always"
-//       },
-//       audio: {
-//         echoCancellation: true,
-//         noiseSuppression: true,
-//         sampleRate: 44100
-//       }
-//     });
-//   }
-
-//   else {
-//     throw new Error('User media not available');
-//   }
-// }
-
-// //WHEN USER CHOOSES TO RECORD HIS SCREEN
-// document.getElementById('record-screen').addEventListener('click', () => {
-//   toggleModal('recording-options-modal', false);
-//   if (screen && screen.getVideoTracks().length) {
-//     startRecording(screenStream);
-//   }
-//   else {
-//     shareScreenhelp().then((screenStream) => {
-//       startRecording(screenStream);
-//     }).catch(() => { });
-//   }
-// });
-
-// //WHEN USER DECIDES TO RECORD HIS VIDEO
-// document.getElementById('record-video').addEventListener('click', () => {
-//   toggleModal('recording-options-modal', false);
-
-//   if (myVideoStream && myVideoStream.getTracks().length) {
-//     startRecording(myVideoStream);
-//   }
-
-//   else {
-//     getUserFullMedia().then((videoStream) => {
-//       startRecording(videoStream);
-//     }).catch(() => { });
-//   }
-// });
-
-// function userMediaAvailable() {
-//   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-// }
-
-// function getUserFullMedia() {
-//   if (this.userMediaAvailable()) {
-//     return navigator.mediaDevices.getUserMedia({
-//       video: true,
-//       audio: {
-//         echoCancellation: true,
-//         noiseSuppression: true
-//       }
-//     });
-//   }
-
-//   else {
-//     throw new Error('User media not available');
-//   }
-// }
-
-// // FUNCTION TO TOGGLE RECORDING OPTION 
-// function toggleRecordingIcons(isRecording) {
-//   let e = document.getElementById('record');
-
-//   if (isRecording) {
-//     e.setAttribute('title', 'Stop recording');
-//     e.children[0].classList.add('text-danger');
-//     e.children[0].classList.remove('text-white');
-//   }
-
-//   else {
-//     e.setAttribute('title', 'Record');
-//     e.children[0].classList.add('text-white');
-//     e.children[0].classList.remove('text-danger');
-//   }
-// }
-
-// //WHEN RECORDING STARTS
-// function startRecording(stream) {
-//   mediaRecorder = new MediaRecorder(stream, {
-//     mimeType: 'video/webm;codecs=vp9'
-//   });
-
-//   mediaRecorder.start(1000);
-//   toggleRecordingIcons(true);
-  
-//   mediaRecorder.ondataavailable = function (e) {
-//     recordedStream.push(e.data);
-//   };
-
-//   mediaRecorder.onstop = function () {
-//     toggleRecordingIcons(false);
-
-//     saveRecordedStream(recordedStream, user);
-
-//     setTimeout(() => {
-//       recordedStream = [];
-//     }, 3000);
-//   };
-
-//   mediaRecorder.onerror = function (e) {
-//     console.error(e);
-//   };
-// }

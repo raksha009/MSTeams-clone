@@ -101,11 +101,11 @@ io.on('connection', socket => {
       socket.to(roomId).broadcast.emit("user-message", message, id);
     })
 
-              //FOR SCREEN SHARING STARTS
-           socket.on('share-screen',video => {
-            socket.broadcast.emit('share-share', video)
+    //----------------Start Screen Sharing ----------------
+    socket.on('share-screen',video => {
+      socket.broadcast.emit('share-share', video)
+    })
 
-          })
   })
 })
 

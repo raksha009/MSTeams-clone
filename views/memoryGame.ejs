@@ -6,52 +6,42 @@
   <link rel="shortcut icon" href="ms-teams-logo.png" type="image/x-icon">
   <link rel="stylesheet" href="memory-game/memoryGame.css">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <!-- <link rel="stylesheet" href="css/app.css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
 </head>
 <body>
 
-    <div class="modal">
-        <div class="modalContent">
-            <p class="modalText"></p>
-            <button class="playAgain">Play Again!</button>
-        </div>
+  <!-- Play Again Button -->
+  <div class="modal">
+    <div class="modalContent">
+      <p class="modalText"></p>
+      <button class="playAgain">Play Again</button>
     </div>
+  </div>
 
-    <div class="container">
-        <header>
-            <h1>Memory Game</h1>
-        </header>
 
-        <section class="score-panel">
-        	<!-- <ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>
-        	</ul> -->
+  <div class="container">
+    <!-- Game Heading -->
+    <header>
+      <h1>Memory Game</h1>
+    </header>
 
-            <span class="moves">3</span> Moves
+    <!-- Score Card -->
+    <section class="score-panel">
+      <span class="moves">3</span> Moves
+    	<span class="timer"></span>    
+      <div class="restart">
+     		<i class="fa fa-repeat"></i>
+     	</div>
+    </section>
 
-        	<span class="timer"></span>    
+    <ul class="deck"></ul>
+  </div>
 
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
-
-        <ul class="deck"></ul>
-    </div>
-
-    <!-- <script src="js/app.js"></script> -->
-</body>
-</html>
-<!-- partial -->
-  <script  src="memory-game/memoryGame.js"></script>
+  <!-- Memory Game Script -->
+  <script src="memory-game/memoryGame.js"></script>
 
 </body>
 </html>

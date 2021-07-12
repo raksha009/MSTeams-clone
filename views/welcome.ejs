@@ -4,90 +4,83 @@
 	<meta charset="utf-8">
 	<title>Teams Clone</title>
 	<link rel="shortcut icon" href="ms-teams-logo.png" type="image/x-icon">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="homepage.css">
 
 	<!-- FONT AWESOME LIBRARY -->
-    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+  <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 </head>
 <body>
 
 	<div class="App">
-      <header class="App-header">
-		<span class= "game-button">
-		     <a href = "/game"> <input class="gaming-button" type="button" value="FUN ZONE"> 
-		     </a>
-		</span>
+    <header class="App-header">
+      <!-- Enter Game Zone -->
+	   <span class= "game-button">
+		  <a href = "/game"> <input class="gaming-button" type="button" value="FUN ZONE"> 
+		  </a>
+		 </span>
+
+     <!-- Welcome Message -->
+		 <img src="microsoft.png" class="App-logo" alt="logo" />
+     <p class ="welcome-teams"> Welcome to MS TEAMS!! </p>
 
 
-		<img src="microsoft.png" class="App-logo" alt="logo" />
-        <p class ="welcome-teams"> Welcome to MS TEAMS!! </p>
-
-        <span class="JoinButton">
-        <a href="/call" class ="TeamJoin"> <i class="fas fa-users" data-title="Meet Button"> </i>   Join Teams </a>
-        
+     <span class="JoinButton">
+        <!-- Join Video Call Button -->
+        <a href="/call" class ="TeamJoin"> <i class="fas fa-users" data-title="Meet Button"> </i>   
+          Join Video Call 
+        </a>
         <br>
-        <a href="/chat" class ="TeamJoin" style="margin-left: 20px;"> <i class="fas fa-comments" data-title="Chat Button"> </i>   Join Chat </a>
-        </span>
-
-      </header>
+        <!-- Join ChatRoom Button -->
+        <a href="/chat" class ="TeamJoin" style="margin-left: 20px;"> <i class="fas fa-comments" data-title="Chat Button"> </i>
+          Join Chat 
+        </a>
+      </span>
+    </header>
 	</div>
         
-
-
-	<script type="text/javascript">
-		
+  <script type="text/javascript">	
 	</script>
-	<!-- <a class="nav-link btn btn-warning signup" href="./views/room.ejs">Login</a> -->
 	<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js"></script>
+  <!-- JS Button -->
 	<script id="rendered-js">
-const docStyle = document.documentElement.style;
-const aElem = document.querySelector('a');
-const boundingClientRect = aElem.getBoundingClientRect();
+    const docStyle = document.documentElement.style;
+    const aElem = document.querySelector('a');
+    const boundingClientRect = aElem.getBoundingClientRect();
 
-aElem.onmousemove = function (e) {
+    aElem.onmousemove = function (e) {
+      const x = e.clientX - boundingClientRect.left;
+      const y = e.clientY - boundingClientRect.top;
+      const xc = boundingClientRect.width / 2;
+      const yc = boundingClientRect.height / 2;
+      const dx = x - xc;
+      const dy = y - yc;
 
-  const x = e.clientX - boundingClientRect.left;
-  const y = e.clientY - boundingClientRect.top;
+      docStyle.setProperty('--rx', `${dy / -1}deg`);
+      docStyle.setProperty('--ry', `${dx / 10}deg`);
+    };
 
-  const xc = boundingClientRect.width / 2;
-  const yc = boundingClientRect.height / 2;
+    aElem.onmouseleave = function (e) {
+      docStyle.setProperty('--ty', '0');
+      docStyle.setProperty('--rx', '0');
+      docStyle.setProperty('--ry', '0');
+    };
 
-  const dx = x - xc;
-  const dy = y - yc;
+    aElem.onmousedown = function (e) {
+      docStyle.setProperty('--tz', '-25px');
+    };
 
-  docStyle.setProperty('--rx', `${dy / -1}deg`);
-  docStyle.setProperty('--ry', `${dx / 10}deg`);
+    document.body.onmouseup = function (e) {
+      docStyle.setProperty('--tz', '-12px');
+    };
 
-};
 
-aElem.onmouseleave = function (e) {
-
-  docStyle.setProperty('--ty', '0');
-  docStyle.setProperty('--rx', '0');
-  docStyle.setProperty('--ry', '0');
-
-};
-
-aElem.onmousedown = function (e) {
-
-  docStyle.setProperty('--tz', '-25px');
-
-};
-
-document.body.onmouseup = function (e) {
-
-  docStyle.setProperty('--tz', '-12px');
-
-};
-//# sourceURL=pen.js
     </script>
-<script src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-9b1c1f23-4d5f-d9c6-b9b8-b3c2f840d8d7" crossorigin=""></script>
-<script type="text/javascript" src="joinhover.js"></script>
+    <script src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-9b1c1f23-4d5f-d9c6-b9b8-b3c2f840d8d7" crossorigin=""></script>
+    <script type="text/javascript" src="joinhover.js"></script>
 
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
