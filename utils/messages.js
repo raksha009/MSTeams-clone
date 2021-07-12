@@ -1,9 +1,10 @@
+// Library for adding time corresponding to sent messages
 const moment = require('moment');
 
 function formatMessage(username, text) {
   return {
-    username,
     text,
+    username,
     time: moment().format('h:mm a')
   };
 }

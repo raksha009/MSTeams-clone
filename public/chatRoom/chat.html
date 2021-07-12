@@ -4,26 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-      crossorigin="anonymous"
-    />
+      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="  crossorigin = "anonymous" />
     <link rel="shortcut icon" href="../ms-teams-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatroom1.css" />
     <title>Chat Room</title>
   </head>
   <body>
     <div class="chat-container">
+
+      <!-- Heading of Chat Room -->
       <header class="chat-header">
-        <h1><i class="fas fa-comment-dots"></i> MS TEAMS CHAT ROOM</h1>
-        <a id="leave-btn" class="btn" href="/">Leave Room</a>
+        <h1><i class="far fa-comments"></i> MS TEAMS CHAT ROOM</h1>
+        <a id="leave-btn" class="btn main-chat" href="/">Leave Room</a>
       </header>
       <main class="chat-main">
         <div class="chat-sidebar">
-          <h3><i class="fas fa-comments"></i> Room Name:</h3>
+
+          <!-- Room Name and Users Present Displayed -->
+          <h3><i class="fas fa-door-open"></i> Room</h3>
           <h2 id="room-name"></h2>
-          <h3><i class="fas fa-users"></i> Users</h3>
+          <h3><i class="fas fa-user-friends"></i> Users</h3>
           <ul id="users"></ul>
         </div>
         <div class="chat-messages"></div>
@@ -37,11 +38,13 @@
             required
             autocomplete="off"
           />
-          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+          <button class="btn main-chat"><i class="fas fa-paper-plane"></i> Send </button>
         </form>
       </div>
     </div>
 
+
+    
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
       integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="

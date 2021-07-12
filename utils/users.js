@@ -1,6 +1,6 @@
 const users = [];
 
-// Join user to chat
+// Add all the users in chatRoom 
 function userJoin(id, username, room) {
   const user = { id, username, room };
 
@@ -23,7 +23,7 @@ function userLeave(id) {
   }
 }
 
-// Get room users
+// Get users currently present in the room
 function getRoomUsers(room) {
   return users.filter(user => user.room === room);
 }
@@ -34,3 +34,4 @@ module.exports = {
   userLeave,
   getRoomUsers
 };
+

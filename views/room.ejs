@@ -50,27 +50,35 @@
       <div class="main__left">
         <div class="main__controls">
             <div class="main__controls__block">
+              <!-- Audio Button -->
                <div onclick="muteUnmute()" class="main__controls__button main__mute_button">
                   <i class="fas fa-microphone"></i>
                   <span>Mute</span>
                </div>
+               <!-- Video Button -->
                <div onclick="playStop()" class="main__controls__button main__video_button" >
                   <i class="fas fa-video"></i>
                   <span>Stop Video</span>
                </div>
+               <!-- Invite Button -->
                <div class = "main__controls__button" id = "invite-button">
                 <i class="fas fa-clone"></i>
                 <span>Invite</span>
               </div>
+              <!-- Enter Chat Room Button -->
               <div class="main__controls__button" >
                 <a href="/chat" target="_blank">
                   <i class="fas fa-comments"></i>
                 </a>
                   <span>Chat Room</span>
               </div>
+              <div class = "main__controls__button" id="screenshare">
+                <i class="fas fa-laptop"></i>
+                <span>Share Screen</span>
+              </div>
             </div>
-            
           
+            <!-- Leave Meeting Button -->
             <div class="main__controls__block">
                <div class="main__controls__button">
                   <a href="/"><span class="leave_meeting">Leave Meeting</span> </a>
@@ -80,7 +88,12 @@
        </div>
      </div>
       
-
+ <!-- SCREEN SHARING  -->
+          <!--   <div class="room-comm options__button" id="screenshare">
+              <button class="btn btn-sm rounded-0 btn-no-effect" id='share-screen' title="Share">
+                <i class="fas fa-laptop" style="font-size:20px;color:#9400FF"></i>
+              </button>
+            </div> -->
 
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
