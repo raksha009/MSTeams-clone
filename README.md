@@ -3,10 +3,11 @@
 A interactive web application that helps users connect with each other and form bonds via real-time virtual meetings. Despite being forced to stay at home due to on-going pandemic, this application helps us to CONNECT with our friends, relative and hence helping us maintain our social network. 
 
 ## Screenshots:
-![oneononegood](https://user-images.githubusercontent.com/59930751/125209622-b8aa6780-e2b7-11eb-8aa7-a093e0da3ec4.png)
-  ![screenshare](https://user-images.githubusercontent.com/59930751/125209634-c95add80-e2b7-11eb-95e1-b524ea588f8e.png)
-  ![videonofffinal](https://user-images.githubusercontent.com/59930751/125209640-d972bd00-e2b7-11eb-87d7-78e8f5b00ee5.png)
-  ![multiuser](https://user-images.githubusercontent.com/59930751/125209646-e42d5200-e2b7-11eb-8ada-519d1a89e449.png)
+![welcome](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/welcomepage.png)
+![VideoCall](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/VideoCall.png)
+![EntryChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/EntryChatRoom.png)
+![MainChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/MainChatRoom.png)
+![FunZone](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/FunZone.png)
 
 
 
@@ -56,8 +57,8 @@ A interactive web application that helps users connect with each other and form 
 | Sprints           | Weeks  | Work Description(Bugs And Deliverables)                      |
 | :---------------- | :----: | :----------------------------------------------------------- |
 | Sprint 1 (Design) | Week 1 | Learned Backend Technologies. <br />Explored PeerJS, WebRTC, Socket.io etc. <br />Designed a basic solution for the challenge. |
-| Sprint 2 (Build)  | Week 2 | Implemented Welcome Page. <br />Join Video Call Feature, Leave Meeting Button |
-|                   | Week 3 | Integrated Video Call with PeerJs. <br />Functionalities added -  <br />Mute/Unmute Mic,Start/Stop Video, Invite Via Link <br />Implemented Game Zone Page |
+| Sprint 2 (Build)  | Week 2 | Implemented Welcome Page. <br />Join Video Call Feature, Leave Meeting Button <br /> Received feedback to improve UI and add more features|
+|                   | Week 3 | Integrated Video Call with PeerJs. <br />Functionalities added - Mute/Unmute Mic,Start/Stop Video, Invite Via Link <br />Implemented Game Zone Page <br /> Received feedback to add chat funtionality|
 | Sprint 3 (Adapt)  | Week 4 | Implemented Chat Rooms <br />Share Screen Functionality added  <br />Hosted the website on Heroku |
 
 
@@ -108,7 +109,9 @@ Note : To redeploy on Heroku after making changes on your localhost -
 
 Change the values of host and port in script.js. The port on Heroku is 443 by-default and host is the name of the site where your Heroku application gets deployed.
 
-![image-20210713112809133](C:\Users\Raksha\AppData\Roaming\Typora\typora-user-images\image-20210713112809133.png)
+![image-20210713112809133](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/changesWhenRe-deployed.png)
 
+
+**Also, while running, if any feature doesn't work, plz change https to http(as https require paid security version) and it would work.**
 
 
