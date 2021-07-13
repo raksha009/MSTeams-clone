@@ -5,12 +5,12 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
   // Values for hosting on Localhost port - 3000
-  // host: 'localhost',
-  // port : '3000'   
+  host: 'localhost',
+  port : '3000'   
 
   // Values for Hosting on heroku 
-  host : 'ms-teams--clone.herokuapp.com',
-  port: '443'
+  // host : 'ms-teams--clone.herokuapp.com',
+  // port: '443'
 })
 
 let currentPeer;
