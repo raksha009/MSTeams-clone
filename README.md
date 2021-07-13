@@ -2,26 +2,19 @@
 
 A interactive web application that helps users connect with each other and form bonds via real-time virtual meetings. Despite being forced to stay at home due to on-going pandemic, this application helps us to CONNECT with our friends, relative and hence helping us maintain our social network. 
 
-## Screenshots:
-![welcome](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/welcomepage.png)
-![VideoCall](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/VideoCall.png)
-![EntryChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/EntryChatRoom.png)
-![MainChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/MainChatRoom.png)
-![FunZone](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/FunZone.png)
-
-
 
 ## Technologies used
 
-* HTML, CSS, JavaScript
-* Bootstrap Framework
-* Node express server
-* WebRTC
-* Peer JS
-* Socket.io
-* Simple-peer
-* UUID
-* moment Module
+* HTML, CSS, JavaScript and
+* Bootstrap Framework - for frontend
+* NodeJs, express server for backend
+* WebRTC and
+* Peer JS  and
+* Socket.io  and
+* Simple-peer -  for establishing realtime connection on videocall/chat with peers/relatives
+(PeerJs wraps the browser's WebRTC implementation to provide an easy to use peer to peer connection API)
+* UUID Module - to create private video call rooms via generating unique URL
+* Moment Module - helps in displaying the current time in our application  (works better when working on apps hosted on localhost)
 
 ## Features
 - Video Call with multiple users
@@ -113,5 +106,12 @@ Change the values of host and port in script.js. The port on Heroku is 443 by-de
 
 
 **Also, while running, if any feature doesn't work, plz change https to http(as https require paid security version) and it would work.**
+
+## Screenshots:
+![welcome](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/welcomepage.png)
+![VideoCall](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/VideoCall.png)
+![EntryChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/EntryChatRoom.png)
+![MainChat](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/MainChatRoom.png)
+![FunZone](https://github.com/raksha009/MSTeams-clone/blob/main/Screenshots/FunZone.png)
 
 
